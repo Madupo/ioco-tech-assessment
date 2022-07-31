@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: emmanuel-interview
+spec:
+  template:
+    metadata:
+      name: emmanuel-interview-pod
+    spec:
+      containers:
+        - name: emmanuel-ioco-assessment
+          image: ioco-assessment-backend-0.0.1-SNAPSHOT.jar
+#          since I'm running it locally and do not want to pull from a public registry, I set the imagePullPolicy to 'Never'
+          imagePullPolicy: Never
+      restartPolicy: Never

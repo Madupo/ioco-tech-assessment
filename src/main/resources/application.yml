@@ -1,0 +1,27 @@
+---
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    name: org.postgresql.Driver
+    username: developer
+    password: emmie
+    properties:
+      hibernate:
+        # The SQL dialect makes Hibernate generate better SQL for the chosen database
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    url: jdbc:postgresql://localhost:5432/ioco-assessment
+  jpa:
+    hibernate:
+      ddl-auto: update
+      # Naming strategy
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  config:
+    activate:
+      on-profile: dev
+server:
+  port: 8001
